@@ -20,48 +20,22 @@
 
 namespace dstar_global_planner{
 
-  /**
-   * @class DStarPlannerROS
-   * @brief Plugin to the ros dstar_global_planner. Implements a wrapper for DStarPlanner Method
-   */
   class DStarPlannerROS : public nav_core::BaseGlobalPlanner{
 
     public:
-      /**
-       * @brief Default constructor for the ros wrapper
-       */
+
       DStarPlannerROS();
 
-      /**
-       * @brief Constructs the ros wrapper
-       * @param name The name to give this instance of the dstar planner
-       * @param tf A pointer to a transform listener
-       * @param costmap The cost map to use for assigning costs to trajectories
-       */
       DStarPlannerROS(std::string name, costmap_2d::Costmap2D* costmap, std::string frame_id);
 
 
-      /**
-       * @brief  Destructor for the wrapper
-       */
+
       ~DStarPlannerROS();
 
-      /**
-          * @brief  Initialization function for the NavFnROS object
-          * @param  name The name of this planner
-          * @param  costmap_ros A pointer to the ROS wrapper of the costmap to use for planning
-     */
+
       void initialize(std::string name, costmap_2d::Costmap2DROS* costmap_ros);
       void initialize(const std::string& name, costmap_2d::Costmap2D* costmap, std::string frame_id);
 
-
-      /**
-       * @brief Given a goal pose in the world, compute a plan
-       * @param start The start pose
-       * @param goal The goal pose
-       * @param plan The plan... filled by the planner
-       * @return True if a valid plan was found, false otherwise
-       */
       bool makePlan(const geometry_msgs::PoseStamped& start,
                     const geometry_msgs::PoseStamped& goal, std::vector<geometry_msgs::PoseStamped>& plan);
 
@@ -71,9 +45,6 @@ namespace dstar_global_planner{
 
   protected:
 
-      /**
-       * @brief  Publish a path for visualization purposes
-       */
       void publishPlan(const std::vector<geometry_msgs::PoseStamped>& path);
       vector<RealPoint> SmoothPlan(list<state> path);
 
