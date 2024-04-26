@@ -262,11 +262,6 @@ void DStarPlannerROS::publishPlan(const std::vector<geometry_msgs::PoseStamped>&
     plan_pub_.publish(gui_path);
 }
 
-
-/// ==================================================================================
-/// SmoothPlan(list<state> path)
-/// smoothing using splines
-/// ==================================================================================
 vector<RealPoint> DStarPlannerROS::SmoothPlan(list<state> path){
 
         ROS_DEBUG("SmoothPlan / getting costmap infos");
