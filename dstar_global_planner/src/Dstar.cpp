@@ -1,7 +1,3 @@
-/* Dstar.cpp
- * James Neufeld (neufeld@cs.ualberta.ca)
- */
-
 #include "dstar_global_planner/Dstar.h"
 #include <stdio.h>
 
